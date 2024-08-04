@@ -57,7 +57,7 @@ class Model:
                 )
                 socket_connected = True
             except Exception as e:
-                print("Could not connect to comfyUI server. Trying again...")
+                print("Could not connect to comfyUI server. Trying again...", e)
                 time.sleep(5)
 
         print("Truss has successfully connected to the ComfyUI server!")

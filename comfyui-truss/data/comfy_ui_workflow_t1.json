@@ -3,8 +3,8 @@
     "inputs": {
       "seed": "{{seed}}",
       "control_after_generate": "randomize",
-      "steps": "{{steps}}",
-      "cfg": "{{cfg}}",
+      "steps": 30,
+      "cfg": 7,
       "sampler_name": "ddim",
       "scheduler": "normal",
       "denoise": 1,

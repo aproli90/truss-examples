@@ -1,12 +1,13 @@
-base_image:
-  image: bolabaseten/comfyui-truss-base:6a7bc35
+# base_image:
+#   image: bolabaseten/comfyui-truss-base:6a7bc35
   # python_executable_path: C:\Users\ashha\Documents\Development\_Work\YourPhysio\Trainings\100x GenAI Wizardry\03 Truss\truss-examples\.venv\Scripts\python.exe
 description: Deploy a ComfyUI workflow as a Truss
 build_commands:
-# - cd ComfyUI && pip install -r requirements.txt
+- git clone https://github.com/comfyanonymous/ComfyUI.git
+- cd ComfyUI && pip install -r requirements.txt
 # - apt update && apt install wget
-# - cd ComfyUI/models/controlnet && wget -O diffusers_xl_canny_full.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors
-# - cd ComfyUI/models/checkpoints && wget -O sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
+- cd ComfyUI/models/controlnet && wget -O diffusers_xl_canny_full.safetensors https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0/resolve/main/diffusion_pytorch_model.fp16.safetensors
+- cd ComfyUI/models/checkpoints && wget -O sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
 environment_variables: {}
 external_package_dirs: []
 model_metadata:
@@ -31,3 +32,4 @@ secrets: {}
 system_packages:
 - ffmpeg
 - libgl1-mesa-glx
+- wget

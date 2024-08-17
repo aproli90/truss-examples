@@ -76,24 +76,24 @@ def add_custom_node(git_url: str):
 
 def setup_comfyui(original_working_directory, data_dir):
     try:
-        model_json = os.path.join(original_working_directory, data_dir, "model.json")
-        with open(model_json, "r") as file:
-            data = json.load(file)
+        # model_json = os.path.join(original_working_directory, data_dir, "model.json")
+        # with open(model_json, "r") as file:
+        #     data = json.load(file)
 
-        logging.debug(f"model json file: {data}")
+        # logging.debug(f"model json file: {data}")
 
-        if data and len(data) > 0:
-            for model in data:
-                if model.get("path") == "custom_nodes":
-                    # Install custom nodes
-                    add_custom_node(model.get("url"))
-                else:
-                    # Download checkpoints, loras, vaes, etc.
-                    download_model(
-                        model_url=model.get("url"),
-                        destination_path=os.path.join(COMFYUI_DIR, model.get("path")),
-                    )
-        logging.debug("Finished downloading models!")
+        # if data and len(data) > 0:
+        #     for model in data:
+        #         if model.get("path") == "custom_nodes":
+        #             # Install custom nodes
+        #             add_custom_node(model.get("url"))
+        #         else:
+        #             # Download checkpoints, loras, vaes, etc.
+        #             download_model(
+        #                 model_url=model.get("url"),
+        #                 destination_path=os.path.join(COMFYUI_DIR, model.get("path")),
+        #             )
+        # logging.debug("Finished downloading models!")
 
         # run the comfy-ui server
         subprocess.run([sys.executable, "main.py"], cwd=COMFYUI_DIR, check=True)
